@@ -9,7 +9,7 @@
 
 namespace mnist
 {
-	// ƒGƒ“ƒfƒBƒAƒ“‚ğ•ÏŠ·
+	// ã‚¨ãƒ³ãƒ‡ã‚£ã‚¢ãƒ³ã‚’å¤‰æ›
     int reverseEndian(int i)
 	{
 		unsigned char c1 = i & 0xff;
@@ -20,7 +20,7 @@ namespace mnist
 		return (static_cast<int>(c1) << 24) + (static_cast<int>(c2) << 16) + (static_cast<int>(c3) << 8) + static_cast<int>(c4);
 	}
 
-	// ‰æ‘œƒf[ƒ^‚ğ“Ç‚İo‚µ
+	// ç”»åƒãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å‡ºã—
 	template<typename Type>
     void loadImages(std::string filename, std::vector<std::vector<std::vector<Type> > > &images)
 	{
@@ -72,7 +72,7 @@ namespace mnist
 		}
 	}
 
-	// ƒ‰ƒxƒ‹ƒf[ƒ^‚ğ“Ç‚İo‚µ
+	// ãƒ©ãƒ™ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å‡ºã—
 	template<typename Type>
     void loadLabels(std::string filename, std::vector<std::vector<Type> > &labels)
 	{
@@ -112,7 +112,7 @@ namespace mnist
 		}
 	}
 
-	// mnistƒf[ƒ^‚ğ‚Ü‚Æ‚ß‚Ä“Ç‚İo‚µ
+	// mnistãƒ‡ãƒ¼ã‚¿ã‚’ã¾ã¨ã‚ã¦èª­ã¿å‡ºã—
 	template<typename Type1, typename Type2>
     void load_mnist(std::vector<std::vector<std::vector<Type1> > > &train_images, std::vector<std::vector<Type2> > &train_labels,
                     std::vector<std::vector<std::vector<Type1> > > &test_images, std::vector<std::vector<Type2> > &test_labels,

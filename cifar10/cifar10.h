@@ -9,13 +9,13 @@
 
 namespace cifar10
 {
-	const int number_of_images = 10000;	// 1ƒtƒ@ƒCƒ‹•Ó‚è‚Ì‰æ‘œ”
-	const int channel = 3;	// ƒ`ƒƒƒ“ƒlƒ‹”
-	const int rows = 32;	// ‰æ‘œcƒTƒCƒY
-	const int cols = 32;	// ‰æ‘œ‰¡ƒTƒCƒY
-	const int number_of_categories = 10;	// ƒNƒ‰ƒX”
+	const int number_of_images = 10000;	// 1ãƒ•ã‚¡ã‚¤ãƒ«è¾ºã‚Šã®ç”»åƒæ•°
+	const int channel = 3;	// ãƒãƒ£ãƒ³ãƒãƒ«æ•°
+	const int rows = 32;	// ç”»åƒç¸¦ã‚µã‚¤ã‚º
+	const int cols = 32;	// ç”»åƒæ¨ªã‚µã‚¤ã‚º
+	const int number_of_categories = 10;	// ã‚¯ãƒ©ã‚¹æ•°
 
-	// ‰æ‘œƒf[ƒ^‚ğ“Ç‚İo‚µ
+	// ç”»åƒãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å‡ºã—
 	template<typename Type1, typename Type2>
     void loadImages(std::string filename, std::vector<std::vector<std::vector<std::vector<Type1> > > > &images,
 					std::vector<std::vector<Type2> > &labels)
@@ -60,7 +60,7 @@ namespace cifar10
 		}
 	}
 
-	// ƒ‰ƒxƒ‹–¼Ì‚ğ“Ç‚İo‚µ
+	// ãƒ©ãƒ™ãƒ«åç§°ã‚’èª­ã¿å‡ºã—
     void loadLabelNames(std::string filename, std::vector<std::string> &label_names)
 	{
 		std::ifstream ifs(filename, std::ios::in | std::ios::binary);
@@ -84,7 +84,7 @@ namespace cifar10
 #endif
 	}
 
-	// cifar-10ƒf[ƒ^‚ğ‚Ü‚Æ‚ß‚Ä“Ç‚İo‚µ
+	// cifar-10ãƒ‡ãƒ¼ã‚¿ã‚’ã¾ã¨ã‚ã¦èª­ã¿å‡ºã—
 	template<typename Type1, typename Type2>
     void load_cifar10(std::vector<std::vector<std::vector<std::vector<Type1> > > > &train_images, std::vector<std::vector<Type2> > &train_labels,
                       std::vector<std::vector<std::vector<std::vector<Type1> > > > &test_images, std::vector<std::vector<Type2> > &test_labels,

@@ -9,15 +9,15 @@
 
 namespace cifar100
 {
-	const int num_train_images = 50000;	// ŒP—û‰æ‘œ‚Ì”
-	const int num_test_images = 10000;	// ƒeƒXƒg‰æ‘œ‚Ì”
-	const int channel = 3;	// ƒ`ƒƒƒ“ƒlƒ‹”
-	const int rows = 32;	// ‰æ‘œcƒTƒCƒY
-	const int cols = 32;	// ‰æ‘œ‰¡ƒTƒCƒY
-	const int num_super_category = 20;	// ƒX[ƒp[ƒNƒ‰ƒX”
-	const int num_sub_category = 100;	// ƒTƒuƒNƒ‰ƒX”
+	const int num_train_images = 50000;	// è¨“ç·´ç”»åƒã®æ•°
+	const int num_test_images = 10000;	// ãƒ†ã‚¹ãƒˆç”»åƒã®æ•°
+	const int channel = 3;	// ãƒãƒ£ãƒ³ãƒãƒ«æ•°
+	const int rows = 32;	// ç”»åƒç¸¦ã‚µã‚¤ã‚º
+	const int cols = 32;	// ç”»åƒæ¨ªã‚µã‚¤ã‚º
+	const int num_super_category = 20;	// ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹æ•°
+	const int num_sub_category = 100;	// ã‚µãƒ–ã‚¯ãƒ©ã‚¹æ•°
 
-	// ‰æ‘œƒf[ƒ^‚ğ“Ç‚İo‚µ
+	// ç”»åƒãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å‡ºã—
 	template<typename Type1, typename Type2>
     void loadImages(std::string filename, std::vector<std::vector<std::vector<std::vector<Type1> > > > &images,
 					std::vector<std::vector<Type2> > &super_labels, std::vector<std::vector<Type2> > &sub_labels)
@@ -78,7 +78,7 @@ namespace cifar100
 #endif
 	}
 
-	// ƒ‰ƒxƒ‹–¼Ì‚ğ“Ç‚İo‚µ
+	// ãƒ©ãƒ™ãƒ«åç§°ã‚’èª­ã¿å‡ºã—
     void loadLabelNames(std::string filename, std::vector<std::string> &label_names)
 	{
 		std::ifstream ifs;
@@ -112,7 +112,7 @@ namespace cifar100
 #endif
 	}
 
-	// cifar-100ƒf[ƒ^‚ğ‚Ü‚Æ‚ß‚Ä“Ç‚İo‚µ
+	// cifar-100ãƒ‡ãƒ¼ã‚¿ã‚’ã¾ã¨ã‚ã¦èª­ã¿å‡ºã—
 	template<typename Type1, typename Type2>
     void load_cifar100(std::vector<std::vector<std::vector<std::vector<Type1> > > > &train_images, std::vector<std::vector<Type2> > &train_super_labels,
 					   std::vector<std::vector<Type2> > &train_sub_labels, std::vector<std::vector<std::vector<std::vector<Type1> > > > &test_images,

@@ -17,14 +17,14 @@ namespace voc2012
 												   "motorbike", "person", "pottedplant",
 												   "sheep", "sofa", "train", "tvmonitor" };
 
-	// XMLŒ`®‚ÌƒAƒmƒe[ƒVƒ‡ƒ“ƒf[ƒ^‚ğ•ÏŠ·
+	// XMLå½¢å¼ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ›
 	template<typename Type>
 	std::vector<std::vector<Type> > xml2list(std::string xml_path, bool normalize = true)
 	{
 		boost::property_tree::ptree pt;
 		boost::property_tree::read_xml(xml_path, pt);
 
-		// ‰æ‘œƒTƒCƒY
+		// ç”»åƒã‚µã‚¤ã‚º
 		Type width = pt.get_optional<Type>("annotation.size.width").get();
 		Type height = pt.get_optional<Type>("annotation.size.height").get();
 
@@ -34,22 +34,22 @@ namespace voc2012
 		{
 			if (child.first == "object")
 			{
-				// difficult‚Éİ’è‚³‚ê‚Ä‚¢‚é‚à‚Ì‚ÍœŠO
+				// difficultã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã¯é™¤å¤–
 				int difficult = child.second.get_optional<int>("difficult").get();
 				if (difficult == 1) {
 					continue;
 				}
 
-				// •¨‘Ì–¼
+				// ç‰©ä½“å
 				std::string name = child.second.get_optional<std::string>("name").get();
 
-				// ƒoƒEƒ“ƒfƒBƒ“ƒOƒ{ƒbƒNƒX‚Ìî•ñ@¦VOC‚ÍŒ´“_‚ª(1,1)‚È‚Ì‚Å1‚ğˆø‚¢‚Ä(0,0)‚É
+				// ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒœãƒƒã‚¯ã‚¹ã®æƒ…å ±ã€€â€»VOCã¯åŸç‚¹ãŒ(1,1)ãªã®ã§1ã‚’å¼•ã„ã¦(0,0)ã«
 				Type xmin = child.second.get_optional<Type>("bndbox.xmin").get() - 1;
 				Type ymin = child.second.get_optional<Type>("bndbox.ymin").get() - 1;
 				Type xmax = child.second.get_optional<Type>("bndbox.xmax").get() - 1;
 				Type ymax = child.second.get_optional<Type>("bndbox.ymax").get() - 1;
 
-				// ‰æ‘œ‚ÌƒTƒCƒY‚Å³‹K‰»
+				// ç”»åƒã®ã‚µã‚¤ã‚ºã§æ­£è¦åŒ–
 				if (normalize) {
 					xmin /= width;
 					ymin /= height;
@@ -57,7 +57,7 @@ namespace voc2012
 					ymax /= height;
 				}
 
-				// ƒAƒmƒe[ƒVƒ‡ƒ“‚ÌƒNƒ‰ƒX–¼‚ğindex‚É•ÏŠ·
+				// ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¯ãƒ©ã‚¹åã‚’indexã«å¤‰æ›
 				Type index = -1;
 				for (int i = 0; i < voc_classes.size(); ++i) {
 					if (voc_classes[i] == name) {
@@ -96,7 +96,7 @@ namespace voc2012
 		std::string train_path = root_path + "\\ImageSets\\Main\\train.txt";
 		std::string val_path = root_path + "\\ImageSets\\Main\\val.txt";
 
-		// ŒP—û‚ÆŒŸØ‚Ìƒtƒ@ƒCƒ‹ID‚ğæ“¾
+		// è¨“ç·´ã¨æ¤œè¨¼ã®ãƒ•ã‚¡ã‚¤ãƒ«IDã‚’å–å¾—
 		train_img_list = loadIDList(train_path, img_path, ".jpg");
 		train_anno_list = loadIDList(train_path, anno_path, ".xml");
 		val_img_list = loadIDList(val_path, img_path, ".jpg");
